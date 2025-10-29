@@ -85,9 +85,6 @@ export const login = async (req, res) => {
 
 export const logout = (req, res) => {
   try {
-   if(!req.cookies.jwt){
-    return res.status(401).json({errors: "Kindly login first"});
-   }
     res.clearCookie("jwt");
     res.status(200).json({ message: "Logged out successfully" });
   } catch (error) {
@@ -95,6 +92,7 @@ export const logout = (req, res) => {
     console.log("Error in logout", error);
   }
 };
+
 export const purchases = async (req, res) => {
   const userId = req.userId;
 
