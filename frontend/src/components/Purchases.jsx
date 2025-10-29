@@ -62,14 +62,12 @@ function Purchases() {
       });
       toast.success(response.data.message);
       localStorage.removeItem("user");
-      navigate("/login");
       setIsLoggedIn(false);
     } catch (error) {
       console.log("Error in logging out ", error);
       toast.error(error.response.data.errors || "Error in logging out");
     }
   };
-
   // Toggle sidebar visibility
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
