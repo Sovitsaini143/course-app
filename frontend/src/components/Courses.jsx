@@ -50,6 +50,7 @@ function Courses() {
   }, []);
 
   // Logout
+ // Logout
   const handleLogout = async () => {
     try {
       const response = await axios.get(`${BACKEND_URL}/user/logout`, {
