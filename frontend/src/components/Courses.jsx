@@ -11,7 +11,7 @@ import { FiSearch } from "react-icons/fi";
 import { HiMenu, HiX } from "react-icons/hi"; // Import menu and close icons
 import logo from "../../public/logo.webp";
 import toast from "react-hot-toast";
-import { Link} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BACKEND_URL } from "../utils/utils";
 
 function Courses() {
@@ -74,7 +74,8 @@ function Courses() {
       {/* Hamburger menu button for mobile */}
       <button
         className="md:hidden fixed top-4 left-4 z-20 text-3xl text-gray-800"
-        onClick={toggleSidebar}>
+        onClick={toggleSidebar}
+      >
         {isSidebarOpen ? <HiX /> : <HiMenu />} {/* Toggle menu icon */}
       </button>
 
@@ -82,7 +83,8 @@ function Courses() {
       <aside
         className={`fixed top-0 left-0 h-screen bg-gray-100 w-64 p-5 transform z-10 transition-transform duration-300 ease-in-out ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0 md:static`}>
+        } md:translate-x-0 md:static`}
+      >
         <div className="flex items-center mb-10 mt-10 md:mt-0">
           <img src={logo} alt="Profile" className="rounded-full h-12 w-12" />
         </div>
@@ -113,7 +115,8 @@ function Courses() {
                 <Link to={"/"}
                   
                   className="flex items-center"
-                  onClick={handleLogout}>
+                  onClick={handleLogout}
+                >
                   <IoLogOut className="mr-2" /> Logout
                 </Link>
               ) : (
@@ -160,7 +163,8 @@ function Courses() {
               {courses.map((course) => (
                 <div
                   key={course._id}
-                  className="border border-gray-200 rounded-lg p-4 shadow-sm" >
+                  className="border border-gray-200 rounded-lg p-4 shadow-sm"
+                >
                   <img
                     src={course.image.url}
                     alt={course.title}
@@ -183,7 +187,8 @@ function Courses() {
                   {/* Buy page */}
                   <Link
                     to={`/buy/${course._id}`} // Pass courseId in URL
-                    className="bg-orange-500 w-full text-white px-4 py-2 rounded-lg hover:bg-blue-900 duration-300">
+                    className="bg-orange-500 w-full text-white px-4 py-2 rounded-lg hover:bg-blue-900 duration-300"
+                  >
                     Buy Now
                   </Link>
                 </div>
